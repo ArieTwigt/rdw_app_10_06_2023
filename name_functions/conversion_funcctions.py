@@ -19,4 +19,7 @@ def capitalize_names(names_list: List[str]) -> List[str]:
     for name in names_list:
         new_names_list.append(name.capitalize())
 
+    # or as a list comprehension
+    new_names_list = [name.capitalize() for name in names_list]
+
     return new_names_list

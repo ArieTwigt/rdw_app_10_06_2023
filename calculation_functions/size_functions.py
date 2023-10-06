@@ -1,5 +1,5 @@
 from math import pow, pi
-from typing import Tuple
+from typing import Tuple, Union
 
 
 def calc_circle(diameter: float,
@@ -35,6 +35,23 @@ def calc_circle(diameter: float,
     return size_rounded, radius
 
 
+def calc_contents(length: Union[float, int], 
+                  height: Union[float, int], 
+                  width: Union[float, int]
+                  ) -> float:
+    """
+    Method for calculating the contents of a box
 
-def calc_content():
-    pass
+    Inputs:
+    * length
+    * width
+    * height
+
+    Returns:
+    * Size of the box
+    """
+
+    # calculate the content
+    size = length * width * height
+
+    return size

@@ -1,16 +1,21 @@
-from calculation_functions.size_functions import calc_circle, calc_contents
-from name_functions.conversion_funcctions import capitalize_names
+from rdw_functions.import_functions import import_cars_by_brand
+from rdw_functions.export_functions import export_cars_list_to_csv
+from tqdm import tqdm
 
-#my_diameter = float(input("Insert the diameter:\n"))
+# specify the brand
+selected_brand =  input("Insert a car brand:\n")
 
-#my_size, my_radius = calc_circle(double_up=True, diameter=10, rounding=5)
+# convert to a list
+selected_brands_list = selected_brand.split("+")
 
-my_size = calc_contents(2, 4, 10)
-my_names = ['jim', 'john', 'marc', 'danny', 'peter']
+for brand in tqdm(selected_brands_list):
+    # get the cars from the RDW
+    cars_list = import_cars_by_brand(brand)
 
-my_new_names = capitalize_names(my_names)
+    # check if the list is not empty
+    if len(cars_list) == 0:
+        continue
 
-print(my_size)
-print(my_new_names)
-pass
+    # export the to a csv
+    export_cars_list_to_csv(cars_list, brand)
 

@@ -35,15 +35,16 @@ def calc_circle(diameter: float,
     return size_rounded, radius
 
 
+
 def calc_contents(length: Union[float, int], 
                   height: Union[float, int], 
                   width: Union[float, int]
-                  ) -> float:
+                  ) -> Union[float, int]:
     """
     Method for calculating the contents of a box
 
     Inputs:
-    * length
+    * length: length of the box
     * width
     * height
 
@@ -51,7 +52,7 @@ def calc_contents(length: Union[float, int],
     * Size of the box
     """
 
-    # calculate the content
+    # calculate the
     size = length * width * height
 
     return size
